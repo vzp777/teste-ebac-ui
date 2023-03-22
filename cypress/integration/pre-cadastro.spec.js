@@ -26,4 +26,10 @@ beforeEach(() => {
 
    });
 
+   it.only('Deve completar o pré-cadastro com sucesso usando comandos customizados', () => {
+    let emailfaker2 = faker.internet.email()
+    cy.preCadastro(emailfaker2, 'senha!@forte','Victor','Penna')
+    cy.get('.woocommerce-message').should('contain','Detalhes da conta modificados com sucesso.')
+   });
+
 });
